@@ -1,3 +1,4 @@
+import { AppError } from "./app.error";
 import { Store } from "./stores/store.type"
 
 export type RecipeType = {
