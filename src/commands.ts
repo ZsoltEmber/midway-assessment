@@ -10,3 +10,11 @@ export async function list(store: Store<RecipeType[]>, args: string[]) {
   console.log('Your recipes:');
   console.log(formatted);
 }
+
+
+export async function details(store: Store<RecipeType[]>, args: string[]) {
+  const recipe = new Recipe(store);
+  const recipes = await recipe.readAll();
+  const foundRecipe = recipes.find((recipe)=> recipe.id === parseInt(args[3]))
+  const formatted = `Your recipes details : ${foundRecipe?.name}, ${foundRecipe?.id}`
+}
